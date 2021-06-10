@@ -1,0 +1,175 @@
+body {
+    margin: 0;
+    font-family: Hack, monospace;
+}
+
+header {
+    margin: 0px;
+    height: 80px;
+    width: 100%;
+    background-color: #FFDEE9;
+    background-image: linear-gradient(249deg, #FFDEE9 0%, #B5FFFC 100%);
+}
+
+.menu-btn-placement {
+      float: left;
+  }
+ 
+  .ham {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 400ms;
+     user-select: none;
+  }
+  .hamRotate.active {
+    transform: rotate(45deg);
+  }
+  .hamRotate180.active {
+    transform: rotate(180deg);
+  }
+  .line {
+    fill:none;
+    transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+    stroke:#000;
+    stroke-width:5.5;
+    stroke-linecap: round;
+  }
+.ham4 .top {
+    stroke-dasharray: 40 121;
+  }
+  .ham4 .bottom {
+    stroke-dasharray: 40 121;
+  }
+  .ham4.active .top {
+    stroke-dashoffset: -68px;
+  }
+  .ham4.active .bottom {
+    stroke-dashoffset: -68px;
+  }
+
+  .middle-title {
+    width: 100%;
+    height: 100%;
+  }
+
+  .Ctitle {
+    font-family: Hack, monospace;
+    text-align: center;
+    margin-right: 80px;
+    padding-top: 22px;
+    text-transform: uppercase;
+  }
+
+  .login-btn {
+    font-family: Hack, monospace;
+    background: #bbff00;
+    color: #1d1d1d;
+    cursor: pointer;
+    font-size: 2em;
+    padding: 1.5rem;
+    border: 0;
+    transition: all 0.5s;
+    border-radius: 10px;
+    width: auto;
+    position: relative;
+    min-width: 250px;
+  }
+
+  .buttons {
+    float: right;
+    height: 0;
+    margin-top: 0px;
+  }
+  
+  .container {
+    align-items: center;
+    text-align: center;
+    width: 200px;
+    margin-top: 13.5px;
+  }
+  
+  .btn {
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 45px;
+    max-width: 160px;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 100%;
+  }
+  .btn:hover {
+    text-decoration: none;
+  }
+  
+  /*btn_background*/
+  .effect01 {
+    color: #FFF;
+    border: 4px solid #000;
+    box-shadow:0px 0px 0px 1px #000 inset;
+    background-color: #000;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease-in;
+  }
+  .effect01:hover {
+    border: 4px solid #666;
+    background-color: #FFF;
+    box-shadow:0px 0px 0px 4px #EEE inset;
+  }
+
+  .activeLogIn {
+    border: 4px solid #666;
+    background-color: #FFF;
+    box-shadow:0px 0px 0px 4px #EEE inset;
+    letter-spacing: 0.13em;
+    color: #333;
+  }
+
+  .effect01.activeLogIn:after {
+    transition: none;
+  }
+  .effect01.activeLogIn:hover:after {
+    transition: none;
+  }
+  
+  /*btn_text*/
+  .effect01 span {
+    transition: all 0.2s ease-out;
+    z-index: 2;
+  }
+  .effect01:hover span{
+    letter-spacing: 0.13em;
+    color: #333;
+  }
+  
+  /*highlight*/
+  .effect01:after {
+    background: #FFF;
+    border: 0px solid #000;
+    content: "";
+    height: 155px;
+    left: -75px;
+    opacity: .8;
+    position: absolute;
+    top: -50px;
+    -webkit-transform: rotate(35deg);
+            transform: rotate(35deg);
+    width: 50px;
+    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    z-index: 1;
+  }
+  .effect01:hover:after {
+    background: #FFF;
+    border: 20px solid #000;
+    opacity: 0;
+    left: 120%;
+    -webkit-transform: rotate(40deg);
+            transform: rotate(40deg);
+  }
+
+  .logInPanel {
+    float: right;
+}

@@ -1,0 +1,30 @@
+.logInPanel-container {
+    position: relative;
+    font-family: Hack, monospace;
+    width: fit-content;
+    margin-left: -19.1%;
+    margin-top: -15.5%;
+}
+
+.simpleLogIn {
+    opacity: 100%;
+    text-align: center;
+    width: 160px;
+    height: 116px;
+    border: 4px solid #666;
+    border-top: 0;
+    background-color: #FFF;
+    box-shadow: 0px 0px 0px 4px #EEE inset;
+  }
+
+form {
+    padding-top: 7px;
+}
+
+.confirmLogIn {
+    margin-top: 5px;
+}
+#password, #email {
+    margin-left: 0;
+}
+  

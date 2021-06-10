@@ -1,0 +1,93 @@
+.search-container{
+  display: flex;
+  background-image: linear-gradient(249deg, #FFDEE9 0%, #B5FFFC 100%);
+}
+
+.topics{
+  display: flex;
+  padding-top: 15px;
+}
+
+.question{
+  margin-left: 30px;
+  font-size: 140%;
+}
+
+.secondpart{
+  margin-left: 60px;
+}
+
+.container {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  .asd{
+    list-style-type: none;
+  }
+  .asd li{
+      margin-bottom: 10px;
+
+  }
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: #eee;
+    padding: 2px;
+    box-shadow: 3px 3px 5px #aaaaaa;
+  }
+  /* On mouse-over*/
+.container:hover input ~ .checkmark {
+    background-color: #FFDEE9;
+  }
+  
+  /* When the checkbox is checked*/
+  .container input:checked ~ .checkmark {
+    background-color: #000;
+  }
+  
+  /* Hidden when not checked */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark*/
+  .container .checkmark:after {
+    left: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  table{
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+    height: 100%;
+  }

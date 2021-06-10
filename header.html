@@ -1,0 +1,135 @@
+<link rel="stylesheet" href="header.css" />
+<link rel="stylesheet" href="today.css" />
+<link rel="stylesheet" href="add.css" />
+
+<header>
+    <div class="menu-btn-placement" data-module="openMenu">
+      <svg class="ham hamRotate ham4" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
+        <path
+              class="line top"
+              d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
+        <path
+              class="line middle"
+              d="m 70,50 h -40" />
+        <path
+              class="line bottom"
+              d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
+      </svg>
+    </div> 
+    <div class="buttons">
+        <div class="container">
+            <div class="btn effect01" onclick="this.classList.toggle('activeLogIn')">
+              <span>Log in</span>
+            </div>
+        </div>
+      </div>
+    <div class="middle-title">
+        <h1 class="Ctitle">Creative title</h1>
+    </div>
+    
+</header>
+<main>
+
+  <div id="todo-container">
+    <div class="time">
+        <h3>Date:</h3>
+        <input type="datetime-local">
+    </div>
+    <div class="note">
+        <div>
+            <h3>TODO:</h3>
+            
+        </div>
+
+        <div>
+            <textarea class="textBox" type="text" placeholder="Type your text here"></textarea>
+        </div>
+        <div class="colorText">color:</div>
+        <div class="colorSelect">
+        
+            <input class="colorChoice" type="color">
+        </div>
+
+
+
+    </div>
+    <div class="topic">
+        <div>
+            <h3>Topic:</h3>
+        </div>
+        <div class="topic-container">
+            <table>
+                <tr>
+                    <td class="asd">
+                        <ul>
+                        <li><input type="checkbox"> topic </input></li>
+                        <li><input type="checkbox"> topic </input></li>
+                        <li><input type="checkbox"> topic </input></li>
+                       <li><input type="checkbox"> topic </input></li>
+                    </ul>
+                    </td>
+                    <td class="asd"> 
+                        <ul>
+                
+                            <li><input type="checkbox"> topic </input></li>
+                            <li><input type="checkbox"> topic </input></li>
+                            <li><input type="checkbox"> topic </input></li>
+                            <li><input type="checkbox"> topic </input></li>
+                        </ul>
+                    </td>
+                </tr>
+
+            </table>
+            
+         </div>
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+<div class="day">
+  <h2 class="day"></h2>
+  <h3 class="date"></h3>
+</div> 
+<table>
+  <tr>
+    <td><canvas class="hour0"></canvas></td>
+    <td><canvas class="hour0"></canvas></td>
+    <td><canvas class="hour0"></canvas></td>
+    <td><canvas class="hour0"></canvas></td>
+    <td><canvas class="hour0"></canvas></td>
+    <td class="right"><canvas class="hour0 right"></canvas></td>
+  </tr>
+  <tr>
+      <td><canvas class="hour0"></canvas></td>
+      <td><canvas class="hour0"></canvas></td>
+      <td><canvas class="hour0"></canvas></td>
+      <td><canvas class="hour0"></canvas></td>
+      <td><canvas class="hour0"></canvas></td>
+      <td class="right"><canvas class="hour0 right"></canvas></td>
+    </tr>
+    <tr>
+      <td><canvas class="hour0"></canvas></td>
+      <td><canvas class="hour0"></canvas></td>
+      <td><canvas class="hour0"></canvas></td>
+      <td><canvas class="hour0"></canvas></td>
+      <td><canvas class="hour0"></canvas></td>
+      <td class="right"><canvas class="hour0 right"></canvas></td>
+    </tr>
+    <tr>
+      <td><canvas class="hour0"></canvas></td>
+      <td><canvas class="hour0"></canvas></td>
+      <td><canvas class="hour0"></canvas></td>
+      <td><canvas class="hour0"></canvas></td>
+      <td><canvas class="hour0"></canvas></td>
+      <td class="right"><canvas class="hour24 right"></canvas></td>
+    </tr>
+</table>
+
+</main>
