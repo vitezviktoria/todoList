@@ -1,11 +1,13 @@
-#todo-container {
-    padding-top: 40px;
-    width: 240px;
+.todo-container {
     height: calc(100% - 80px);
+    width: 240px;
+    top: 80px;
+    position: absolute;
+    z-index: 1;
+    padding-top: 0px;
     background-color: #B5FFFC;
     padding-left: 10px;
     border-bottom: 0;
-    position: absolute;
 }
 
 .time {
@@ -111,10 +113,9 @@ input[type="color"]::-webkit-color-swatch {
     border: 0;
 }
 
-.container {
+.topic-container {
     position: relative;
-    padding-left: 30px;
-    margin-bottom: 12px;
+    margin-left: -3px;
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -122,25 +123,18 @@ input[type="color"]::-webkit-color-swatch {
     user-select: none;
   }
   .asd li{
-      margin-bottom: 10px;
-
-  }
-  .container input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
+    margin-top: 12;
+    margin-bottom: 5px;
+    margin-left: -10;
+    padding-bottom: 5;
   }
   .checkmark {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     height: 15px;
     width: 15px;
-    background-color: #eee;
     padding: 2px;
-    box-shadow: 3px 3px 5px #aaaaaa;
   }
   /* On mouse-over*/
 .container:hover input ~ .checkmark {
@@ -177,5 +171,6 @@ input[type="color"]::-webkit-color-swatch {
   }
 
   .mentes {
-      margin-top: 30px;
-  }
+    margin-top: 90px;
+    margin-left: 85px;
+}
