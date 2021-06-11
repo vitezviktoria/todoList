@@ -1,77 +1,72 @@
-<meta charset="UTF-8" />
-<title>Határidőnapló</title>
-<link rel="stylesheet" href="./search.css" />
-<link rel="stylesheet" href="./header.css" />
-
 
 <div class = "search-container">
-<div class="question">
-    <h2 class = "firstpart">What are you</h2>
-    <h2 class = "secondpart">looking for?</h2>    
-</div>
-    <div class="topics">
-        <ul class = "asd">
-            <li>
-                <label class="container">
-                    <input type="checkbox" id="IT" name="IT" value="IT" onchange="Search('IT')">IT
-                <span class="checkmark"></span>
-            </label>
-            </li>
-            <li>
-                <label class="container">
-                    <input type="checkbox" id="hobby" name="Hobby" onchange="Search('hobby')">Hobby
-                <span class="checkmark"></span>
-            </label>
-            </li>
-            <li>
-                <label class="container">
-                    <input type="checkbox" id="sport" name="Sport" onchange="Search('sport')">Sport
-                <span class="checkmark"></span>
-            </label>
-            </li>
-            <li>
-                <label class="container">
-                    <input type="checkbox" id="cooking" name="Cooking" onchange="Search('cooking')">Cooking
-                <span class="checkmark"></span>
-            </label>
-            </li>
-        </ul>
-        <ul class = "asd">
-            <li>
-                <label class="container">
-                    <input type="checkbox" id="Health" name="Health" onchange="Search('Health')">Health
-                <span class="checkmark"></span>
-            </label>
-            </li>
-            <li>
-                <label class="container">
-                    <input type="checkbox" id="shopping" name="Shopping" onchange="Search('shopping')">Shopping
-                <span class="checkmark"></span>
-            </label>
-            </li>
-            <li>
-                <label class="container">
-                    <input type="checkbox" id="social" name="Social" onchange="Search('social')">Social
-                <span class="checkmark"></span>
-            </label>
-            </li>
-            <li>
-                <label class="container">
-                    <input type="checkbox" id="work" name="Work" onchange="Search('work')">Work
+    <div class="question">
+        <h2 class = "firstpart">What are you</h2>
+        <h2 class = "secondpart">looking for?</h2>    
+    </div>
+        <div class="topics">
+            <ul class = "asd">
+                <li>
+                    <label class="container">
+                        <input type="checkbox" id="IT" name="IT" value="IT" onchange="Search('IT')">IT
                     <span class="checkmark"></span>
                 </label>
-            </li>
-        </ul>
-        
+                </li>
+                <li>
+                    <label class="container">
+                        <input type="checkbox" id="hobby" name="Hobby" onclick="Search('hobby')">Hobby
+                    <span class="checkmark"></span>
+                </label>
+                </li>
+                <li>
+                    <label class="container">
+                        <input type="checkbox" id="sport" name="Sport" onclick="Search('sport')">Sport
+                    <span class="checkmark"></span>
+                </label>
+                </li>
+                <li>
+                    <label class="container">
+                        <input type="checkbox" id="cooking" name="Cooking" onclick="Search('cooking')">Cooking
+                    <span class="checkmark"></span>
+                </label>
+                </li>
+            </ul>
+            <ul class = "asd">
+                <li>
+                    <label class="container">
+                        <input type="checkbox" id="Health" name="Health" onclick="Search('Health')">Health
+                    <span class="checkmark"></span>
+                </label>
+                </li>
+                <li>
+                    <label class="container">
+                        <input type="checkbox" id="shopping" name="Shopping" onclick="Search('shopping')">Shopping
+                    <span class="checkmark"></span>
+                </label>
+                </li>
+                <li>
+                    <label class="container">
+                        <input type="checkbox" id="social" name="Social" onclick="Search('social')">Social
+                    <span class="checkmark"></span>
+                </label>
+                </li>
+                <li>
+                    <label class="container">
+                        <input type="checkbox" id="work" name="Work" onclick="Search('work')">Work
+                        <span class="checkmark"></span>
+                    </label>
+                </li>
+            </ul>
+            
+        </div>
     </div>
-</div>
-<div>
-    <table>
-        <tr>
-            <td>
-                <canvas> 
-                </canvas>
-            </td>
-        </tr>
-    </table>
-</div>
+    <div>
+        <table>
+            <tr>
+                <td>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script type="text/javascript" src="search.js"></script>
+    

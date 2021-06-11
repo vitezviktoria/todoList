@@ -126,6 +126,7 @@ nextButton.onclick = evt =>
 
 function Dates()
 {
+    
   switch (dayofweek)
     {
 case 0:  //Vasárnap

@@ -1,24 +1,24 @@
 function handleSubmit(event) {
    
-    event.preventDefault();
-    
-    
-    var existing = localStorage.getItem('todo');
-    
-    existing = existing ? JSON.parse(existing) : {};
-    const data = new FormData(event.target);
-    const value = Object.fromEntries(data.entries());
-    value.topics = data.getAll("topics");
-    var cr = Object.keys(existing).length;
-    
-    cr++;
-    
-    existing[cr] = value;
-    localStorage.setItem('todo', JSON.stringify(existing));
+  event.preventDefault();
   
-  }
   
-  //localStorage.clear(); 
-    const form = document.querySelector('form');
-    form.addEventListener('submit', handleSubmit);  
-    
+  var existing = localStorage.getItem('todo');
+  
+  existing = existing ? JSON.parse(existing) : {};
+  const data = new FormData(event.target);
+  const value = Object.fromEntries(data.entries());
+  value.topics = data.getAll("topics");
+  var cr = Object.keys(existing).length;
+  
+  cr++;
+  
+  existing[cr] = value;
+  localStorage.setItem('todo', JSON.stringify(existing));
+
+}
+
+//localStorage.clear(); 
+  const form = document.querySelector('form');
+  form.addEventListener('submit', handleSubmit);  
+  

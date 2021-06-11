@@ -1,3 +1,9 @@
+body
+{
+  background: "white";
+  background-image: none;
+}
+
 .search-container{
   display: flex;
   background-image: linear-gradient(249deg, #FFDEE9 0%, #B5FFFC 100%);
@@ -86,8 +92,13 @@
   }
 
   table{
-    background-color: #fff;
-    width: 100%;
-    border-collapse: collapse;
-    height: 100%;
+    border-collapse: separate;
+    border-spacing: 30px;
+  }
+
+  td
+  {
+    width: 200px;
+    height: 200px;
+    text-align: center;
   }
