@@ -1,6 +1,6 @@
 var date = new Date();
 var dayofweek = date.getDay();    //0 és 6 közötti értéket ad (0 ha vasárnap)
-var days = ["Vasárnap", "Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek", "Szombat"];
+var days = ["Vasárnap", "Hétfőő", "Kedd", "Szerda", "Csütörtök", "Péntek", "Szombat"];
 var month = date.getMonth() + 1;
 var day = date.getDate() ;
 var prevButton = document.querySelector('#button1');
