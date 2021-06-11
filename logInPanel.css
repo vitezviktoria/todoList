@@ -2,7 +2,7 @@
     position: relative;
     font-family: Hack, monospace;
     width: fit-content;
-    margin-left: -19.1%;
+    margin-left: -19%;
     margin-top: -15.5%;
 }
 
@@ -26,5 +26,6 @@ form {
 }
 #password, #email {
     margin-left: 0;
+    width: 100%;
 }
   
