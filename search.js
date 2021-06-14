@@ -39,12 +39,16 @@ function Search(name) {
               .querySelector("tbody")
               .appendChild(document.createElement("tr"));
           }
-
+  
           todoText[i] = records[i].text;
           todoColor[i] = records[i].color;
 
           placeofTodo.innerHTML = todoText[i];
-          placeofTodo.className = name + "id";
+          console.log(placeofTodo.classList);
+            
+            placeofTodo.className += name + "id ";
+          
+
           placeofTodo.style.background = todoColor[i];
           placeofTodo.style.color = "white";
         }
@@ -58,9 +62,18 @@ function Search(name) {
     var rowDeleter = lastRow.length;
     
     for (var i = 0; i < deleter.length; i++) {
-      deleter[i].remove();
-      i--;
-      tdCount--;
+   /*   if (deleter[i].classList.length >= 1) {
+        
+
+            deleter[i].classList.remove(nameDelete);
+          }*/
+        
+      
+      //else {
+        deleter[i].remove();
+        i--;
+        tdCount--;
+    //  } 
     }
 
     if (rowDeleter >= 1) {
@@ -84,8 +97,3 @@ function Search(name) {
 }
 
 //`${name}`
-/*var lastrow = document.querySelector("tbody").lastElementChild;
-      var tdLastRow = lastrow.querySelectorAll("td");
-      if (tdLastRow.length == 0) {
-        lastrow.remove();
-      }*/
