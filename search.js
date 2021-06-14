@@ -44,6 +44,8 @@ function Search(name) {
           todoColor[i] = records[i].color;
 
           placeofTodo.innerHTML = todoText[i];
+          placeofTodo.id = i;
+          placeofTodo.setAttribute("onclick", "modifyDelete()");
           console.log(placeofTodo.classList);
             
             placeofTodo.className += name + "id ";

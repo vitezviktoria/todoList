@@ -1,0 +1,126 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="edit.css" />
+    </head>
+
+    <body>
+        <div id="todo-container" class="modal">
+            <form class="modal-content animate">
+                <span onclick="document.getElementById('todo-container').style.display='none'" class="close" title="Close Modal">&times;</span>
+
+                <div class="time">
+                    <h3>Date:</h3>
+                    <input type="datetime-local">
+                </div>
+                <div class="note">
+                    <div>
+                        <h3>TODO:</h3>
+                        
+                    </div>
+
+                    <div class="text">
+                        <textarea class="textBox" type="text" placeholder="Type your text here"></textarea>
+                    </div>
+                    <div class="colorText">color:</div>
+                    <div class="colorSelect">
+                    
+                        <input class="colorChoice" type="color">
+                    </div>
+
+
+
+                </div>
+                <div class="topic">
+                    <div>
+                        <h3>Topic:</h3>
+                    </div>
+                    <div class="topic-container">
+                        <table>
+                            <tr>
+                                <td class="asd">
+                                    <ul>
+                                    <li>
+                                        <label class="container">
+                                        <input type="checkbox">IT
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    </li>
+                                    <li>
+                                        <label class="container">
+                                            <input type="checkbox">Hobby
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label class="container">
+                                        <input type="checkbox">Sport
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    </li>
+                                <li>
+                                    <label class="container">
+                                        <input type="checkbox">Cooking
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                                </ul>
+                                </td>
+                                <td class="asd">
+                                    <ul>
+                            
+                                        <li>
+                                            <label class="container">
+                                        <input type="checkbox">Health
+                                        <span class="checkmark"></span>
+                                    </label>
+                                        </li>
+                                        <li>
+                                            <label class="container">
+                                        <input type="checkbox">Shopping
+                                        <span class="checkmark"></span>
+                                    </label>
+                                        </li>
+                                        <li>
+                                            <label class="container">
+                                        <input type="checkbox">Social
+                                        <span class="checkmark"></span>
+                                    </label>
+                                        </li>
+                                        <li>
+                                            <label class="container">
+                                        <input type="checkbox">Work
+                                        <span class="checkmark"></span>
+                                    </label>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                        </table>
+                        <button type="submit" id="editButton" class="editButton">Save changes</button> 
+                        <button type="submit" id="deleteButton" class="deleteButton">Delete</button> 
+                    </div>
+
+                </div>
+            </form>
+
+
+        </div>
+
+        <script>
+            var modal = document.getElementById('todo-container');
+
+            window.onclick = function(event){
+                if (event.target == modal){
+                    modal.style.display = "none";
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+

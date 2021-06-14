@@ -145,3 +145,32 @@ function deleteLastPage(){
     deleteCounter = true;
 }  
 
+function modifyDelete(){
+
+    const dayC = document.createElement('link');
+    dayC.id = 'edit';
+    dayC.rel = 'stylesheet';
+    dayC.href = `edit.css`;
+    document.head.appendChild(dayC);
+
+   
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET',`edit.html`, true);
+
+    xhr.onload = function (){
+        if(this.status == 200){
+            const text = xhr.responseText;
+            document.getElementById("pageLoader").innerHTML += (text);
+            const JS = document.createElement('script');
+    JS.type = 'text/javascript';
+     JS.id = 'edit';
+    JS.src = `edit.js`;
+    document.querySelector('footer').appendChild(JS);
+
+            }
+        }   
+
+    xhr.send(); 
+    event.preventDefault();          
+};
+

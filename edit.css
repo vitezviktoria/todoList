@@ -1,0 +1,201 @@
+
+
+  #editButton, #deleteButton
+{
+    
+
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 20px;
+    color: #fff; 
+    margin: 5px 0;
+    padding: 3px 9px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#editButton:hover,
+#deleteButton:hover {
+    opacity: 0.7;
+}
+
+#editButton
+{
+    
+    bottom:20px;
+    left:35px;  
+    background: #000;
+}
+
+
+#deleteButton
+{
+    bottom:20px;
+    right:35px;
+    background: red;
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #B5FFFC;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 5% auto 15% auto;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 20px;
+}
+
+.close {
+    position: static;
+    float: right;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s;
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+  }
+    
+  @keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+  }
+
+  @media screen and (max-width: 300px) {
+  }
+
+  .time {
+    width: 300px;
+    height: 75px;
+    padding-bottom: 15px;
+}
+
+.time h3{
+    text-transform: uppercase;
+}
+
+.time input {
+    font-size: 12px;
+    border: hidden;
+    box-shadow: 3px 3px 5px #aaaaaa;
+    border-radius: 4%;
+    padding: 7px;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.note h3{
+    text-transform: uppercase;
+}
+
+.note .textBox {
+    
+    height: 206.53px;
+    width: 619.62px;
+    margin-left: 10px;
+    border-radius: 4%;
+    border: hidden;
+    box-shadow: 3px 3px 5px #aaaaaa;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 7px;
+}
+
+textarea {
+    resize: none;
+}
+
+.topic-container {
+    margin-left: 0px;
+    width: 235px;
+}
+
+.topic h3{
+    text-transform: uppercase;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 14px;
+}
+
+h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+input {
+    margin-left: 10px;
+}
+
+input[type=color]{
+	width: 20px;
+	height: 20px;
+	border: none;
+	background: none;
+    margin-left: 67px;
+    margin-top: -18px;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+	border: solid 1px #000; 
+	border-radius: 60%;
+}
+
+:checked{
+ 
+    border: 1px solid red;
+}
+
+.container:hover input ~ .checkmark {
+    background-color: #FFDEE9;
+  }
+  
+  .container input:checked ~ .checkmark {
+    background-color: #000;
+  }
+  
+  /* Hidden when not checked */
+  .checkmark:after {
+    content: "";
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+
