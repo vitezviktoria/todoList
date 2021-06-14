@@ -27,10 +27,8 @@ function Search(name) {
         if (todoTopics[i][j] === name) {
           tdCount++;
 
-          console.log(document.querySelectorAll("td").length);
-
           trCount = document.querySelectorAll("tr").length;
-          console.log(tdCount);
+
           document
             .querySelectorAll("tr")
             [trCount - 1].appendChild(document.createElement("td"));
@@ -46,7 +44,7 @@ function Search(name) {
           todoColor[i] = records[i].color;
 
           placeofTodo.innerHTML = todoText[i];
-          placeofTodo.id = name + "id";
+          placeofTodo.className = name + "id";
           placeofTodo.style.background = todoColor[i];
           placeofTodo.style.color = "white";
         }
@@ -54,31 +52,36 @@ function Search(name) {
     }
   }
   if (checkBox.checked == false) {
-    var nameDelete = name + "id"; 
-
+    var nameDelete = name + "id";
+    var deleter = document.getElementsByClassName(`${nameDelete}`);
     var lastRow = document.querySelectorAll("tr");
-    for( var i=0; i < lastRow.length; i++) {
-     var lastCells = document.querySelectorAll('tr')[i].querySelectorAll("td").length;
-     if (lastCells === 0) {
-       lastRow[i].remove();
-     }
+    var rowDeleter = lastRow.length;
+    
+    for (var i = 0; i < deleter.length; i++) {
+      deleter[i].remove();
+      i--;
+      tdCount--;
     }
 
-    while (document.querySelector("tr").lastElementChild) {
+    if (rowDeleter >= 1) {
+      for (var i = 1; i < rowDeleter; i++) {
+        var lastCells = document
+          .querySelectorAll("tr")
+          [i].querySelectorAll("td").length;
 
-      
-     
+        if (lastCells === 0) {
+          lastRow[i].remove();
+          rowDeleter--;
 
-      var el = document.getElementById(`${nameDelete}`);
-      el.remove();
-      if (el) {
-        console.log("töröltve");
-        tdCount--;
+          i--;
+          if ((i = 0)) {
+            return;
+          }
+        }
       }
     }
   }
 }
-
 
 //`${name}`
 /*var lastrow = document.querySelector("tbody").lastElementChild;
