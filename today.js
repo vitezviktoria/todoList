@@ -35,7 +35,6 @@ var todoHour = [];
 var todoText = [];
 var todoColor = [];
 var j = 0;
-var foundNote = false;
 
 if (stored)
     {
@@ -51,75 +50,7 @@ if (stored)
         }
     }
 
-var td = document.querySelectorAll('td');
-for(var i=0;i<td.length;i++)
-        {
-            td[i].style.background = "white";
-            td[i].innerHTML = "";
-        }
-
-for(var i=0;i<todoTime.length;i++)
-    {
-        todoTimeRecord = todoTime[i];
-        todoMonth[i] = todoTimeRecord[1];
-        todoDay[i] = todoTimeRecord[2].split("T")[0];
-        todoHour[i] = todoTimeRecord[2].split("T")[1];
-        
-        if((todoDay[i]==checkFormat(day))&&todoMonth[i]==checkFormat(month))
-            {
-                if((todoHour[i].split(":")[0])<=4)
-                   {
-                       if((todoHour[i].split(":")[0])%4==0)       tdHour = document.querySelector('#firstrow .dawn'); 
-                       else if((todoHour[i].split(":")[0])%4==1)  tdHour = document.querySelector('#secondrow .dawn'); 
-                       else if((todoHour[i].split(":")[0])%4==2)  tdHour = document.querySelector('#thirdrow .dawn'); 
-                       else                                       tdHour = document.querySelector('#lastrow .dawn'); 
-                   }
-                else if((todoHour[i].split(":")[0])>=4&&(todoHour[i].split(":")[0])<8)
-                    {
-                       if((todoHour[i].split(":")[0])%4==0)       tdHour = document.querySelector('#firstrow .morning'); 
-                       else if((todoHour[i].split(":")[0])%4==1)  tdHour = document.querySelector('#secondrow .morning'); 
-                       else if((todoHour[i].split(":")[0])%4==2)  tdHour = document.querySelector('#thirdrow .morning'); 
-                       else                                       tdHour = document.querySelector('#lastrow .morning'); 
-                    }
-                else if((todoHour[i].split(":")[0])>=8&&(todoHour[i].split(":")[0])<12)
-                    {
-                       if((todoHour[i].split(":")[0])%4==0)       tdHour = document.querySelector('#firstrow .forenoon'); 
-                       else if((todoHour[i].split(":")[0])%4==1)  tdHour = document.querySelector('#secondrow .forenoon'); 
-                       else if((todoHour[i].split(":")[0])%4==2)  tdHour = document.querySelector('#thirdrow .forenoonn'); 
-                       else                                       tdHour = document.querySelector('#lastrow .forenoon'); 
-                    }
-                else if((todoHour[i].split(":")[0])>=12&&(todoHour[i].split(":")[0])<16)
-                    {
-                       if((todoHour[i].split(":")[0])%4==0)       tdHour = document.querySelector('#firstrow .afternoon'); 
-                       else if((todoHour[i].split(":")[0])%4==1)  tdHour = document.querySelector('#secondrow .afternoon'); 
-                       else if((todoHour[i].split(":")[0])%4==2)  tdHour = document.querySelector('#thirdrow .afternoon'); 
-                       else                                       tdHour = document.querySelector('#lastrow .afternoon'); 
-                    }
-                else if((todoHour[i].split(":")[0])>=16&&(todoHour[i].split(":")[0])<20)
-                    {
-                       if((todoHour[i].split(":")[0])%4==0)       tdHour = document.querySelector('#firstrow .night'); 
-                       else if((todoHour[i].split(":")[0])%4==1)  tdHour = document.querySelector('#secondrow .night'); 
-                       else if((todoHour[i].split(":")[0])%4==2)  tdHour = document.querySelector('#thirdrow .night'); 
-                       else                                       tdHour = document.querySelector('#lastrow .night'); 
-                    }
-                else
-                    {
-                       if((todoHour[i].split(":")[0])%4==0)       tdHour = document.querySelector('#firstrow .latenight'); 
-                       else if((todoHour[i].split(":")[0])%4==1)  tdHour = document.querySelector('#secondrow .latenight'); 
-                       else if((todoHour[i].split(":")[0])%4==2)  tdHour = document.querySelector('#thirdrow .latenight'); 
-                       else                                       tdHour = document.querySelector('#lastrow .latenight'); 
-                    }
-                
-                if(todoColor[i]=="#000000")
-                    {
-                        tdHour.style.color = "white";
-                    }
-                tdHour.innerHTML = todoText[i];
-                tdHour.style.background = todoColor[i];
-                tdHour.style.textAlign = "center";
-                foundNote = true;
-            }
-    }
+notePlacement();
 
 actualDay();
 nextButton.onclick = evt =>
@@ -174,73 +105,17 @@ nextButton.onclick = evt =>
                     dayofweek=0;
                 }
         }
-    
-    foundNote = false;
-    td = document.querySelectorAll('td');
+
+    var td = document.querySelectorAll('td div');
     for(var i=0;i<td.length;i++)
         {
-            td[i].style.background = "white";
-            td[i].innerHTML = "";
-        }
-    
-    for(var i=0;i<todoTime.length;i++)
-    {
-        if((todoDay[i]==checkFormat(day))&&todoMonth[i]==checkFormat(month))
+            if(td[i].classList!=null)
             {
-                if((todoHour[i].split(":")[0])<4)
-                   {
-                       if((todoHour[i].split(":")[0])%4==0)       tdHour = document.querySelector('#firstrow .dawn'); 
-                       else if((todoHour[i].split(":")[0])%4==1)  tdHour = document.querySelector('#secondrow .dawn'); 
-                       else if((todoHour[i].split(":")[0])%4==2)  tdHour = document.querySelector('#thirdrow .dawn'); 
-                       else                                       tdHour = document.querySelector('#lastrow .dawn'); 
-                   }
-                else if((todoHour[i].split(":")[0])>=4&&(todoHour[i].split(":")[0])<8)
-                    {
-                       if((todoHour[i].split(":")[0])%4==0)       tdHour = document.querySelector('#firstrow .morning'); 
-                       else if((todoHour[i].split(":")[0])%4==1)  tdHour = document.querySelector('#secondrow .morning'); 
-                       else if((todoHour[i].split(":")[0])%4==2)  tdHour = document.querySelector('#thirdrow .morning'); 
-                       else                                       tdHour = document.querySelector('#lastrow .morning'); 
-                    }
-                else if((todoHour[i].split(":")[0])>=8&&(todoHour[i].split(":")[0])<12)
-                    {
-                       if((todoHour[i].split(":")[0])%4==0)       tdHour = document.querySelector('#firstrow .forenoon'); 
-                       else if((todoHour[i].split(":")[0])%4==1)  tdHour = document.querySelector('#secondrow .forenoon'); 
-                       else if((todoHour[i].split(":")[0])%4==2)  tdHour = document.querySelector('#thirdrow .forenoon'); 
-                       else                                       tdHour = document.querySelector('#lastrow .forenoon'); 
-                    }
-                else if((todoHour[i].split(":")[0])>=12&&(todoHour[i].split(":")[0])<16)
-                    {
-                       if((todoHour[i].split(":")[0])%4==0)       tdHour = document.querySelector('#firstrow .afternoon'); 
-                       else if((todoHour[i].split(":")[0])%4==1)  tdHour = document.querySelector('#secondrow .afternoon'); 
-                       else if((todoHour[i].split(":")[0])%4==2)  tdHour = document.querySelector('#thirdrow .afternoon'); 
-                       else                                       tdHour = document.querySelector('#lastrow .afternoon'); 
-                    }
-                else if((todoHour[i].split(":")[0])>=16&&(todoHour[i].split(":")[0])<20)
-                    {
-                       if((todoHour[i].split(":")[0])%4==0)       tdHour = document.querySelector('#firstrow .night'); 
-                       else if((todoHour[i].split(":")[0])%4==1)  tdHour = document.querySelector('#secondrow .night'); 
-                       else if((todoHour[i].split(":")[0])%4==2)  tdHour = document.querySelector('#thirdrow .night'); 
-                       else                                       tdHour = document.querySelector('#lastrow .night'); 
-                    }
-                else
-                    {
-                       if((todoHour[i].split(":")[0])%4==0)       tdHour = document.querySelector('#firstrow .latenight'); 
-                       else if((todoHour[i].split(":")[0])%4==1)  tdHour = document.querySelector('#secondrow .latenight'); 
-                       else if((todoHour[i].split(":")[0])%4==2)  tdHour = document.querySelector('#thirdrow .latenight'); 
-                       else                                       tdHour = document.querySelector('#lastrow .latenight'); 
-                    }
-                
-                
-                 if(todoColor[i]=="#000000")
-                    {
-                        tdHour.style.color = "white";
-                    }
-                tdHour.innerHTML = todoText[i];
-                tdHour.style.background = todoColor[i];
-                tdHour.style.textAlign = "center";
-                foundNote = true;
+                td[i].classList.remove("note");
             }
-    }
+        }    
+    
+    notePlacement();
     
     let elem1 = document.querySelector('.day h2')
     let elem2 = document.querySelector('.day h3')
@@ -314,71 +189,16 @@ prevButton.onclick = evt =>
                 }
         }
     
-    foundNote = false;
-    td = document.querySelectorAll('td');
+    var td = document.querySelectorAll('td div');
     for(var i=0;i<td.length;i++)
         {
-            td[i].style.background = "white";
-            td[i].innerHTML = "";
-        }
-    
-    for(var i=0;i<todoTime.length;i++)
-    {
-        if((todoDay[i]==checkFormat(day))&&todoMonth[i]==checkFormat(month))
+            if(td[i].classList!=null)
             {
-               if((todoHour[i].split(":")[0])<=4)
-                   {
-                       if((todoHour[i].split(":")[0])%4==0)       tdHour = document.querySelector('#firstrow .dawn'); 
-                       else if((todoHour[i].split(":")[0])%4==1)  tdHour = document.querySelector('#secondrow .dawn'); 
-                       else if((todoHour[i].split(":")[0])%4==2)  tdHour = document.querySelector('#thirdrow .dawn'); 
-                       else                                       tdHour = document.querySelector('#lastrow .dawn'); 
-                   }
-                else if((todoHour[i].split(":")[0])>=4&&(todoHour[i].split(":")[0])<8)
-                    {
-                       if((todoHour[i].split(":")[0])%4==0)       tdHour = document.querySelector('#firstrow .morning'); 
-                       else if((todoHour[i].split(":")[0])%4==1)  tdHour = document.querySelector('#secondrow .morning'); 
-                       else if((todoHour[i].split(":")[0])%4==2)  tdHour = document.querySelector('#thirdrow .morning'); 
-                       else                                       tdHour = document.querySelector('#lastrow .morning'); 
-                    }
-                else if((todoHour[i].split(":")[0])>=8&&(todoHour[i].split(":")[0])<12)
-                    {
-                       if((todoHour[i].split(":")[0])%4==0)       tdHour = document.querySelector('#firstrow .forenoon'); 
-                       else if((todoHour[i].split(":")[0])%4==1)  tdHour = document.querySelector('#secondrow .forenoon'); 
-                       else if((todoHour[i].split(":")[0])%4==2)  tdHour = document.querySelector('#thirdrow .forenoonn'); 
-                       else                                       tdHour = document.querySelector('#lastrow .forenoon'); 
-                    }
-                else if((todoHour[i].split(":")[0])>=12&&(todoHour[i].split(":")[0])<16)
-                    {
-                       if((todoHour[i].split(":")[0])%4==0)       tdHour = document.querySelector('#firstrow .afternoon'); 
-                       else if((todoHour[i].split(":")[0])%4==1)  tdHour = document.querySelector('#secondrow .afternoon'); 
-                       else if((todoHour[i].split(":")[0])%4==2)  tdHour = document.querySelector('#thirdrow .afternoon'); 
-                       else                                       tdHour = document.querySelector('#lastrow .afternoon'); 
-                    }
-                else if((todoHour[i].split(":")[0])>=16&&(todoHour[i].split(":")[0])<20)
-                    {
-                       if((todoHour[i].split(":")[0])%4==0)       tdHour = document.querySelector('#firstrow .night'); 
-                       else if((todoHour[i].split(":")[0])%4==1)  tdHour = document.querySelector('#secondrow .night'); 
-                       else if((todoHour[i].split(":")[0])%4==2)  tdHour = document.querySelector('#thirdrow .night'); 
-                       else                                       tdHour = document.querySelector('#lastrow .night'); 
-                    }
-                else
-                    {
-                       if((todoHour[i].split(":")[0])%4==0)       tdHour = document.querySelector('#firstrow .latenight'); 
-                       else if((todoHour[i].split(":")[0])%4==1)  tdHour = document.querySelector('#secondrow .latenight'); 
-                       else if((todoHour[i].split(":")[0])%4==2)  tdHour = document.querySelector('#thirdrow .latenight'); 
-                       else                                       tdHour = document.querySelector('#lastrow .latenight'); 
-                    }
-                
-                 if(todoColor[i]=="#000000")
-                    {
-                        tdHour.style.color = "white";
-                    }
-                tdHour.innerHTML = todoText[i];
-                tdHour.style.background = todoColor[i];
-                tdHour.style.textAlign = "center";
-                foundNote = true;
+                td[i].classList.remove("note");
             }
-    }
+        }
+
+    notePlacement();
     
     let elem1 = document.querySelector('.day h2')
     let elem2 = document.querySelector('.day h3')
@@ -409,4 +229,79 @@ function checkFormat(x) //pl. 04.1 --> 04.01
                 x = '0' + x;
             }
     return x;
+}
+
+function notePlacement()
+{
+var td = document.querySelectorAll('td div');
+for(var i=0;i<td.length;i++)
+        {
+            td[i].style.background = "white";
+            td[i].textContent = "";
+        }
+
+for(var i=0;i<todoTime.length;i++)
+    {
+        todoTimeRecord = todoTime[i];
+        todoMonth[i] = todoTimeRecord[1];
+        todoDay[i] = todoTimeRecord[2].split("T")[0];
+        todoHour[i] = todoTimeRecord[2].split("T")[1];
+        
+        if((todoDay[i]==checkFormat(day))&&todoMonth[i]==checkFormat(month))
+            {
+                if((todoHour[i].split(":")[0])<=4)
+                   {
+                       if((todoHour[i].split(":")[0])%4==0)       tdHour = document.querySelector('#firstrow .dawn div'); 
+                       else if((todoHour[i].split(":")[0])%4==1)  tdHour = document.querySelector('#secondrow .dawn div'); 
+                       else if((todoHour[i].split(":")[0])%4==2)  tdHour = document.querySelector('#thirdrow .dawn div'); 
+                       else                                       tdHour = document.querySelector('#lastrow .dawn div'); 
+                   }
+                else if((todoHour[i].split(":")[0])>=4&&(todoHour[i].split(":")[0])<8)
+                    {
+                       if((todoHour[i].split(":")[0])%4==0)       tdHour = document.querySelector('#firstrow .morning div'); 
+                       else if((todoHour[i].split(":")[0])%4==1)  tdHour = document.querySelector('#secondrow .morning div'); 
+                       else if((todoHour[i].split(":")[0])%4==2)  tdHour = document.querySelector('#thirdrow .morning div'); 
+                       else                                       tdHour = document.querySelector('#lastrow .morning div'); 
+                    }
+                else if((todoHour[i].split(":")[0])>=8&&(todoHour[i].split(":")[0])<12)
+                    {
+                       if((todoHour[i].split(":")[0])%4==0)       tdHour = document.querySelector('#firstrow .forenoon div'); 
+                       else if((todoHour[i].split(":")[0])%4==1)  tdHour = document.querySelector('#secondrow .forenoon div'); 
+                       else if((todoHour[i].split(":")[0])%4==2)  tdHour = document.querySelector('#thirdrow .forenoon div'); 
+                       else                                       tdHour = document.querySelector('#lastrow .forenoon div'); 
+                    }
+                else if((todoHour[i].split(":")[0])>=12&&(todoHour[i].split(":")[0])<16)
+                    {
+                       if((todoHour[i].split(":")[0])%4==0)       tdHour = document.querySelector('#firstrow .afternoon div'); 
+                       else if((todoHour[i].split(":")[0])%4==1)  tdHour = document.querySelector('#secondrow .afternoon div'); 
+                       else if((todoHour[i].split(":")[0])%4==2)  tdHour = document.querySelector('#thirdrow .afternoon div'); 
+                       else                                       tdHour = document.querySelector('#lastrow .afternoon div'); 
+                    }
+                else if((todoHour[i].split(":")[0])>=16&&(todoHour[i].split(":")[0])<20)
+                    {
+                       if((todoHour[i].split(":")[0])%4==0)       tdHour = document.querySelector('#firstrow .night div'); 
+                       else if((todoHour[i].split(":")[0])%4==1)  tdHour = document.querySelector('#secondrow .night div'); 
+                       else if((todoHour[i].split(":")[0])%4==2)  tdHour = document.querySelector('#thirdrow .night div'); 
+                       else                                       tdHour = document.querySelector('#lastrow .night div'); 
+                    }
+                else
+                    {
+                       if((todoHour[i].split(":")[0])%4==0)       tdHour = document.querySelector('#firstrow .latenight div'); 
+                       else if((todoHour[i].split(":")[0])%4==1)  tdHour = document.querySelector('#secondrow .latenight div'); 
+                       else if((todoHour[i].split(":")[0])%4==2)  tdHour = document.querySelector('#thirdrow .latenight div'); 
+                       else                                       tdHour = document.querySelector('#lastrow .latenight div'); 
+                    }
+                
+                if(todoColor[i]=="#000000")
+                    {
+                        tdHour.style.color = "white";
+                    }
+                tdHour.textContent = todoText[i];
+                tdHour.style.background = todoColor[i];
+                tdHour.style.textAlign = "center";
+                tdHour.style.height = document.querySelector('table').offsetHeight / 6;
+                tdHour.classList.add("note");
+            }
+               
+}
 }
