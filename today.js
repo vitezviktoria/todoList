@@ -27,13 +27,6 @@ var buttons = document.querySelectorAll('.flipping a');
     })
 
 var stored = localStorage.getItem('todo');
-
-if (stored)
-    {
-    var records = JSON.parse(stored);
-var keyCount = Object.keys(records).length;
-    }
-
 var todoTime = [];
 var todoMonth = [];
 var todoDay = [];
@@ -44,15 +37,21 @@ var todoColor = [];
 var j = 0;
 var foundNote = false;
 
-for(var i=1; i<=keyCount; i++)
+if (stored)
     {
-        todoTime[j] = records[i].time.split("-");
-        todoText[j] = records[i].text; 
-        todoColor[j] = records[i].color;
-        j++;
+    var records = JSON.parse(stored);
+    var keyCount = Object.keys(records).length;
+
+        for(var i=1; i<=keyCount; i++)
+        {
+            todoTime[j] = records[i].time.split("-");
+            todoText[j] = records[i].text; 
+            todoColor[j] = records[i].color;
+            j++;
+        }
     }
 
-td = document.querySelectorAll('td');
+var td = document.querySelectorAll('td');
 for(var i=0;i<td.length;i++)
         {
             td[i].style.background = "white";
@@ -121,16 +120,6 @@ for(var i=0;i<todoTime.length;i++)
                 foundNote = true;
             }
     }
-
-
-/*console.log(todoTime);
-console.log(todoText);
-console.log(todoColor);
-console.log(todoMonth);
-console.log(todoDay);
-console.log(todoHour);
-console.log(todoText);
-console.log(month, day);*/
 
 actualDay();
 nextButton.onclick = evt =>

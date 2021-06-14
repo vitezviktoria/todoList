@@ -8,15 +8,13 @@
         <th><div class="day6"></div><div class="date6 dates"></div></th>
         <th><div class="day7"></div><div class="date7 dates"></div></th>
     </tr>
-    <tr class="bottom">
-        <td><canvas class="Monday"></canvas></td>
-        <td><canvas class="Tuesday"></canvas></td>
-        <td><canvas class="Wednesday"></canvas></td>
-        <td><canvas class="Thursday"></canvas></td>
-        <td><canvas class="Friday"></canvas></td>
-        <td><canvas class="Saturday"></canvas></td>
-        <td class="bottom"><canvas class="Sunday"></canvas></td>
-    </tr>
+    <div class="bottom">
+        <tr id="dawn"><td class="Monday"></td><td class="Tuesday"></td><td class="Wednesday"></td><td class="Thursday"></td><td class="Friday"></td><td class="Saturday"></td><td class="Sunday"></td></tr>
+        <tr id="forenoon"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr id="afternoon"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr id="night"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    </div>
     <div class="flipping">
     <a href="" id="button1" class="prevButton">Previous</a>
     <a href="" id="button2" class="nextButton">Next</a>

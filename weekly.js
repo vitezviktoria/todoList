@@ -1,6 +1,6 @@
 var date = new Date();
 var dayofweek = date.getDay();    //0 és 6 közötti értéket ad (0 ha vasárnap)
-var days = ["Vasárnap", "Hétfőő", "Kedd", "Szerda", "Csütörtök", "Péntek", "Szombat"];
+var days = ["Vasárnap", "Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek", "Szombat"];
 var month = date.getMonth() + 1;
 var day = date.getDate() ;
 var prevButton = document.querySelector('#button1');
@@ -25,7 +25,152 @@ var buttons = document.querySelectorAll('.flipping a');
             })
         })
 
+var stored = localStorage.getItem('todo');
+var todoTime = [];
+var todoMonth = [];
+var todoDay = [];
+var todoTimeRecord = [];
+var todoHour = [];
+var todoText = [];
+var todoColor = [];
+var dates = [];
+var datesDays = [];
+var datesMonths = [];
+var j=0;
+var noteCounter= [0, 0, 0, 0, 0, 0, 0];
+var td;
+
 Dates();
+notePlacement();
+
+function notePlacement()
+{
+    td = document.querySelectorAll('td');
+    
+    for(var i=0; i<7; i++)
+    {
+        dates[i] = document.querySelectorAll('.dates')[i].innerHTML;
+        datesMonths[i] = dates[i].split(".")[0];
+        datesDays[i] = dates[i].split(".")[1];
+    }
+    
+    for(var i=0;i<td.length;i++)
+            {
+                td[i].style.background = "white";
+                td[i].innerHTML = "";
+            }
+    
+    if (stored)
+        {
+        var records = JSON.parse(stored);
+        var keyCount = Object.keys(records).length;
+        console.log(records);
+    
+        for(var i=1; i<=keyCount; i++)
+            {
+                todoTime[j] = records[i].time.split("-");
+                todoText[j] = records[i].text; 
+                todoColor[j] = records[i].color;
+                j++;
+            }
+    
+        for(var i=0;i<todoTime.length;i++)
+            {
+                todoTimeRecord = todoTime[i];
+                todoMonth[i] = todoTimeRecord[1];
+                todoDay[i] = todoTimeRecord[2].split("T")[0];
+                todoHour[i] = todoTimeRecord[2].split("T")[1];
+    
+                if((parseInt(todoHour[i].split(":")[0]))<6)
+                {
+                    td = document.querySelectorAll("#dawn td");
+                }
+                else if((parseInt(todoHour[i].split(":")[0]))>=6 && (parseInt(todoHour[i].split(":")[0]))<12)
+                {
+                    td = document.querySelectorAll("#forenoon td");
+                }
+                else if((parseInt(todoHour[i].split(":")[0]))>=12 && (parseInt(todoHour[i].split(":")[0]))<18)
+                {
+                    td = document.querySelectorAll("#afternoon td");
+                }
+                else
+                {
+                    td = document.querySelectorAll("#night td");
+                }
+    
+                for(var k=0; k<dates.length; k++)
+                {
+                    td[k].style.color = "white";
+                    if((datesMonths[k]==todoMonth[i])&&(datesDays[k]==todoDay[i]))
+                    {
+                        if(td[k].querySelectorAll("div").length>=1)
+                        {
+                            noteCounter[k]++;
+                            td[k].appendChild(document.createElement("div"));
+    
+                            td[k].querySelectorAll("div")[noteCounter[k]].textContent = todoText[i];
+                            td[k].querySelectorAll("div")[noteCounter[k]].style.background = todoColor[i];
+                            td[k].querySelectorAll("div")[noteCounter[k]].setAttribute('id', todoHour[i]);
+    
+                            for(var c=0; c<td[k].querySelectorAll("div").length; c++)
+                            {
+                                for(var v=0; v<td[k].querySelectorAll("div").length-1; v++)
+                                {
+                                    if((td[k].querySelectorAll("div")[v].getAttribute('id'))>(td[k].querySelectorAll("div")[v+1].getAttribute('id')))
+                                    {
+                                        var text = td[k].querySelectorAll("div")[v].textContent;
+                                        var id = td[k].querySelectorAll("div")[v].getAttribute('id');
+                                        var color = td[k].querySelectorAll("div")[v].style.background;
+    
+                                        td[k].querySelectorAll("div")[v].setAttribute('id', td[k].querySelectorAll("div")[v+1].getAttribute('id'));
+                                        td[k].querySelectorAll("div")[v+1].setAttribute('id', id);
+    
+                                        td[k].querySelectorAll("div")[v].textContent = td[k].querySelectorAll("div")[v+1].textContent;
+                                        td[k].querySelectorAll("div")[v+1].textContent = text;
+    
+                                        td[k].querySelectorAll("div")[v].style.background = td[k].querySelectorAll("div")[v+1].style.background;
+                                        td[k].querySelectorAll("div")[v+1].style.background = color;
+                                    }
+                                }
+    
+                                td[k].querySelectorAll("div")[c].style.height = document.querySelector("tbody").offsetHeight*0.20/(noteCounter[k]+1);
+                                td[k].querySelectorAll("div")[c].style.maxHeight = "55px";
+                                td[k].querySelectorAll("div")[c].style.minHeight = null;
+                            }
+                            k=dates.length;
+                        }
+    
+                       else
+                        {
+                            td[k].appendChild(document.createElement("div"));
+                            var div = td[k].querySelector('div');
+                            div.setAttribute('id', todoHour[i]);
+                            td[k].querySelector('div').innerHTML = todoText[i];
+                            td[k].querySelector('div').style.background = todoColor[i];
+                            td[k].style.height = document.querySelector("tbody").offsetHeight*0.20;
+                            td[k].querySelector("div").style.maxHeight = "120px";
+                            td[k].querySelector("div").style.minHeight = "110px";
+                            td[k].querySelector('div').style.height = "90%";
+                            k=dates.length;
+                        }
+                    }
+                }
+            }
+        }
+dates = [];
+datesDays = [];
+datesMonths = [];
+todoTime = [];
+todoText = [];
+todoColor = [];
+todoMonth = [];
+todoDay = [];
+todoTimeRecord = [];
+todoHour = [];
+noteCounter= [0, 0, 0, 0, 0, 0, 0];
+j=0;
+}
+
 
 prevButton.onclick = evt =>
 {
@@ -64,13 +209,25 @@ prevButton.onclick = evt =>
                            elems[j].style.transition = "opacity 0.4s linear";
                            elems[j].style.opacity = 0;   
                        }
+    let elems2 = document.querySelectorAll('table div');
+                    for(let j=0; j<elems2.length; j++)
+                    {
+                        elems2[j].style.transition = "opacity 0.5s";
+                        elems2[j].style.opacity = 0;   
+                    }
    
     setTimeout(() => {
                         Dates();
+                        notePlacement();
                         for(let j=0; j<elems.length; j++)
                        {
-                           elems[j].style.transition = "opacity 0.4s linear";
+                           elems[j].style.transition = "opacity 0.5s linear 0s";
                            elems[j].style.opacity = 1;   
+                       }
+                       for(let j=0; j<elems2.length; j++)
+                       {
+                           elems2[j].style.transition = "opacity 0.5s";
+                           elems2[j].style.opacity = 1;   
                        }
                 },400);
 
@@ -110,16 +267,27 @@ nextButton.onclick = evt =>
                            elems[j].style.transition = "opacity 0.5s";
                            elems[j].style.opacity = 0;   
                        }
+    let elems2 = document.querySelectorAll('table div');
+                    for(let j=0; j<elems2.length; j++)
+                    {
+                        elems2[j].style.transition = "opacity 0.5s";
+                        elems2[j].style.opacity = 0;   
+                    }
    
     setTimeout(() => {
                         Dates();
+                        notePlacement();
                         for(let j=0; j<elems.length; j++)
                        {
                            elems[j].style.transition = "opacity 0.5s linear 0s";
                            elems[j].style.opacity = 1;   
                        }
-                },500);
-
+                       for(let j=0; j<elems2.length; j++)
+                       {
+                           elems2[j].style.transition = "opacity 0.5s";
+                           elems2[j].style.opacity = 1;   
+                       }
+                },400);
 }
 
 
@@ -154,7 +322,7 @@ case 1:  //Hétfő
                 }
             
                 Sunday();
-                day = day-7;
+                day = day-6;
                 break;
 
         
