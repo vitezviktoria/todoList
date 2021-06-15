@@ -60,7 +60,7 @@ function Search(name) {
   
             placeofTodo.style.background = todoColor[i];
             placeofTodo.style.color = "white";
-
+            choose();
         }
         else exist.className += name + "id ";
 
@@ -75,7 +75,6 @@ function Search(name) {
     var deleter = document.getElementsByClassName(`${nameDelete}`);
     var lastRow = document.querySelectorAll("tr");
     var rowDeleter = lastRow.length;
-    console.log(deleter);
     for (var i = 0; i < deleter.length; i++) {
      if (deleter[i].classList.length > 1) {
         
@@ -88,6 +87,7 @@ function Search(name) {
         deleter[i].remove();
         i--;
         tdCount--;
+        choose();
       } 
     }
 
@@ -110,5 +110,16 @@ function Search(name) {
     }
   }
 }
+var chosenNote;
+function choose(){
+  let choiceOfTd = document.querySelectorAll('td');
+  for (i of choiceOfTd) {
+        i.addEventListener('click', function() {
+                    chosenNote = this.id;
+                     return chosenNote;       
+        });
+}
+}
+  
 
 //`${name}`
