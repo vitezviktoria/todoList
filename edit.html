@@ -1,13 +1,6 @@
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <link rel="stylesheet" href="edit.css" />
-    </head>
-
-    <body>
-        <div id="todo-container" class="modal">
+        
             <form class="modal-content animate">
-                <span onclick="document.getElementById('todo-container').style.display='none'" class="close" title="Close Modal">&times;</span>
+                <span onclick="deleteMod()" class="close" title="Close Modal">&times;</span>
 
                 <div class="time">
                     <h3>Date:</h3>
@@ -105,8 +98,7 @@
                 </div>
             </form>
 
-
-        </div>
+            
 
         <script>
             var modal = document.getElementById('todo-container');
@@ -117,8 +109,6 @@
                 }
             }
         </script>
-    </body>
-</html>
 
 
 

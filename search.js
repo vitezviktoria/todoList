@@ -22,13 +22,20 @@ function Search(name) {
   var checkBox = document.getElementById(name);
   if (checkBox.checked == true) {
     for (var i = 1; i <= keyCount; i++) {
+      var exist = document.getElementById(i);
       todoTopics[i] = records[i].topics;
+      
       for (var j = 0; j <= todoTopics[i].length; j++) {
+        
+        
         if (todoTopics[i][j] === name) {
+          if (exist === null) {
           tdCount++;
 
           trCount = document.querySelectorAll("tr").length;
 
+          
+          
           document
             .querySelectorAll("tr")
             [trCount - 1].appendChild(document.createElement("td"));
@@ -39,21 +46,27 @@ function Search(name) {
               .querySelector("tbody")
               .appendChild(document.createElement("tr"));
           }
-  
-          todoText[i] = records[i].text;
-          todoColor[i] = records[i].color;
-
-          placeofTodo.innerHTML = todoText[i];
-          placeofTodo.id = i;
-          placeofTodo.setAttribute("onclick", "modifyDelete()");
-          console.log(placeofTodo.classList);
-            
-            placeofTodo.className += name + "id ";
           
+          
+            todoText[i] = records[i].text;
+            todoColor[i] = records[i].color;
+  
+            placeofTodo.innerHTML = todoText[i];
+            placeofTodo.id = i;
+            placeofTodo.setAttribute("onclick", "modifyDelete()");
+     
+              placeofTodo.className += name + "id ";
+            
+  
+            placeofTodo.style.background = todoColor[i];
+            placeofTodo.style.color = "white";
 
-          placeofTodo.style.background = todoColor[i];
-          placeofTodo.style.color = "white";
         }
+        else exist.className += name + "id ";
+
+        
+        }
+        
       }
     }
   }
@@ -62,20 +75,20 @@ function Search(name) {
     var deleter = document.getElementsByClassName(`${nameDelete}`);
     var lastRow = document.querySelectorAll("tr");
     var rowDeleter = lastRow.length;
-    
+    console.log(deleter);
     for (var i = 0; i < deleter.length; i++) {
-   /*   if (deleter[i].classList.length >= 1) {
+     if (deleter[i].classList.length > 1) {
         
-
             deleter[i].classList.remove(nameDelete);
-          }*/
+            i--;
+          }
         
       
-      //else {
+      else {
         deleter[i].remove();
         i--;
         tdCount--;
-    //  } 
+      } 
     }
 
     if (rowDeleter >= 1) {

@@ -147,8 +147,10 @@ function deleteLastPage(){
 
 function modifyDelete(){
 
+    document.getElementById('todo-container').style.display='';
+ 
     const dayC = document.createElement('link');
-    dayC.id = 'edit';
+    dayC.id = 'editCSS';
     dayC.rel = 'stylesheet';
     dayC.href = `edit.css`;
     document.head.appendChild(dayC);
@@ -160,10 +162,10 @@ function modifyDelete(){
     xhr.onload = function (){
         if(this.status == 200){
             const text = xhr.responseText;
-            document.getElementById("pageLoader").innerHTML += (text);
+            document.getElementById("todo-container").innerHTML += (text);
             const JS = document.createElement('script');
     JS.type = 'text/javascript';
-     JS.id = 'edit';
+     JS.id = 'editJS';
     JS.src = `edit.js`;
     document.querySelector('footer').appendChild(JS);
 
@@ -171,6 +173,7 @@ function modifyDelete(){
         }   
 
     xhr.send(); 
-    event.preventDefault();          
+
 };
+
 
