@@ -55,14 +55,14 @@ function Search(name) {
             placeofTodo.id = i;
             placeofTodo.setAttribute("onclick", "modifyDelete()");
      
-              placeofTodo.className += name + "id ";
+              placeofTodo.className += name + "id";
             
   
             placeofTodo.style.background = todoColor[i];
             placeofTodo.style.color = "white";
             choose();
         }
-        else exist.className += name + "id ";
+        else exist.className += " " + name + "id";
 
         
         }
