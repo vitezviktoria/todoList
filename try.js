@@ -5,6 +5,8 @@ let counterMenu = 0;
 let counterLog = false;
 let deleteCounter = false;
 let deleteAdd = false;
+let existing = localStorage.getItem('todo');
+
 
 
 

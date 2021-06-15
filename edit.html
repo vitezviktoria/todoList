@@ -4,7 +4,7 @@
 
                 <div class="time">
                     <h3>Date:</h3>
-                    <input class="datetime" type="datetime-local">
+                    <input class="datetime" type="datetime-local" name="time">
                 </div>
                 <div class="note">
                     <div>
@@ -13,12 +13,12 @@
                     </div>
 
                     <div class="text">
-                        <textarea class="textBox" type="text" placeholder="Type your text here"></textarea>
+                        <textarea class="textBox" type="text" placeholder="Type your text here" name="text"></textarea>
                     </div>
                     <div class="colorText">color:</div>
                     <div class="colorSelect">
                     
-                        <input class="colorChoice" type="color">
+                        <input class="colorChoice" type="color" name="color">
                     </div>
 
 
@@ -35,25 +35,25 @@
                                     <ul>
                                     <li>
                                         <label class="container">
-                                        <input type="checkbox">IT
-                                        <span class="checkmark"></span>
+                                            <input id="topics-IT" name="topics" type="checkbox" value="IT"/>IT
+                                            <span class="checkmark"></span>
                                     </label>
                                     </li>
                                     <li>
                                         <label class="container">
-                                            <input type="checkbox">Hobby
+                                            <input id="topics-hobby" name="topics" type="checkbox" value="hobby"/>Hobby
                                             <span class="checkmark"></span>
                                         </label>
                                     </li>
                                     <li>
                                         <label class="container">
-                                        <input type="checkbox">Sport
-                                        <span class="checkmark"></span>
+                                            <input id="topics-sport" name="topics" type="checkbox" value="sport"/>Sport
+                                            <span class="checkmark"></span>
                                     </label>
                                     </li>
                                 <li>
                                     <label class="container">
-                                        <input type="checkbox">Cooking
+                                        <input id="topics-cooking" name="topics" type="checkbox" value="cooking"/>Cooking
                                         <span class="checkmark"></span>
                                     </label>
                                 </li>
@@ -64,26 +64,26 @@
                             
                                         <li>
                                             <label class="container">
-                                        <input type="checkbox">Health
-                                        <span class="checkmark"></span>
+                                                <input id="topics-health" name="topics" type="checkbox" value="Health"/>Health
+                                                <span class="checkmark"></span>
                                     </label>
                                         </li>
                                         <li>
                                             <label class="container">
-                                        <input type="checkbox">Shopping
-                                        <span class="checkmark"></span>
+                                                <input id="topics-shopping" name="topics" type="checkbox" value="shopping"/>Shopping
+                                                <span class="checkmark"></span>
                                     </label>
                                         </li>
                                         <li>
                                             <label class="container">
-                                        <input type="checkbox">Social
-                                        <span class="checkmark"></span>
+                                                <input id="topics-social" name="topics" type="checkbox" value="social"/>Social
+                                                <span class="checkmark"></span>
                                     </label>
                                         </li>
                                         <li>
                                             <label class="container">
-                                        <input type="checkbox">Work
-                                        <span class="checkmark"></span>
+                                                <input id="topics-work" name="topics" type="checkbox" value="work"/>Work
+                                                <span class="checkmark"></span>
                                     </label>
                                         </li>
                                     </ul>

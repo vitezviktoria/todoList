@@ -3,7 +3,6 @@ function handleSubmit(event) {
   event.preventDefault();
   
   
-  var existing = localStorage.getItem('todo');
   
   existing = existing ? JSON.parse(existing) : {};
   const data = new FormData(event.target);
