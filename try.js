@@ -9,7 +9,7 @@ let existing = localStorage.getItem('todo');
 
 
 
-
+//menu mukodtetése
 menuBtn.addEventListener("click", e => {
     counterMenu++;
     const xhr = new XMLHttpRequest();
@@ -47,7 +47,7 @@ menuBtn.addEventListener("click", e => {
     };
     xhr.send(); 
 });
-
+//Login működtetése
 logIn.addEventListener("click", e => {
     const xhr = new XMLHttpRequest();
     xhr.open('GET',`logInPanel.html`, true);
@@ -85,6 +85,7 @@ logIn.addEventListener("click", e => {
     xhr.send();
 });
 
+//meghívott oldal tartalmának betöltése
 function pageSelect(choice){
     const view = document.getElementById(choice);
    
@@ -119,6 +120,7 @@ function pageSelect(choice){
     
 }
 
+//memoria felhasználás csökkentése
 function deleteMenu(){
     const select = document.getElementById("menu");
     select.innerHTML = "";     

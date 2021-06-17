@@ -7,6 +7,7 @@ var placeofTodo;
 var tdCount = 0;
 var trCount = 0;
 
+//?? profit ??
 while (document.querySelector("tr").lastElementChild) {
   document
     .querySelector("tr")
@@ -17,7 +18,9 @@ if (stored) {
   var records = JSON.parse(stored);
   var keyCount = Object.keys(records).length;
 }
-
+//A jelölés alapján keresés
+//A kijelölt topic note-jának létrehozása
+//Ábrázolt note esetén, csak class kiegészítés, nem hoz újat létre.
 function Search(name) {
   var checkBox = document.getElementById(name);
   if (checkBox.checked == true) {
@@ -70,6 +73,7 @@ function Search(name) {
       }
     }
   }
+  //a megjelölés megszüntetéskor, a hozzátartozó elemek törlése
   if (checkBox.checked == false) {
     var nameDelete = name + "id";
     var deleter = document.getElementsByClassName(`${nameDelete}`);
@@ -110,6 +114,8 @@ function Search(name) {
     }
   }
 }
+
+// note kiválasztása kattintáskor
 var chosenNote;
 function choose(){
   let choiceOfTd = document.querySelectorAll('td');
